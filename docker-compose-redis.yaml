@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis-Tungl
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - /llm-dev-assistant/host-llm/data:/root/redis
+      - /llm-dev-assistant/host-llm/data/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_PASSWORD=password
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
